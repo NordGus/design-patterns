@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: design-patterns-ts
+    command: tail -f /dev/null
