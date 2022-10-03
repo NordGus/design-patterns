@@ -1,23 +1,19 @@
-export default class ImageStorage {
-    private compressor: string;
-    private filter: string;
+import ICompressor from "./ICompressor";
+import IFilter from "./IFilter";
 
-    constructor(compressor: string, filter: string) {
+export default class ImageStorage {
+    private compressor: ICompressor;
+    private filter: IFilter;
+
+    constructor(compressor: ICompressor, filter: IFilter) {
         this.compressor = compressor;
         this.filter = filter
     }
 
     public store(fileName: string): void {
-        if (this.compressor == "jpeg")
-            console.log("Compressing using jpeg");
-        else if (this.compressor == "png")
-            console.log("Comprenssing using png");
+        this.compressor.apply(fileName);
+        this.filter.apply(fileName);
 
-        if (this.filter == "b&w")
-            console.log("Applying b&w filter");
-        else if (this.filter == "high-contrast")
-            console.log("Applying high contrast filter");
-
-        console.log(`Storing ${fileName}.${this.compressor}`);
+        console.log(`Storing ${fileName}.${this.compressor.extension()}`);
     }
 }
