@@ -1,17 +1,14 @@
-export default class ChatClient {
-    private encryptionAlgorithm: string;
+import IEncryptionAlgorithm from "./IEncrytionAlgorithm";
 
-    constructor(encryptionAlgorithm: string) {
+export default class ChatClient {
+    private encryptionAlgorithm: IEncryptionAlgorithm;
+
+    constructor(encryptionAlgorithm: IEncryptionAlgorithm) {
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
     public send(message: string) {
-        if (this.encryptionAlgorithm === "DES")
-            console.log("Encrypting message using DES");
-        else if (this.encryptionAlgorithm === "AES")
-            console.log("Encrypting message using AES");
-        else
-            throw new Error("Unsupported encryption algorithm");
+        this.encryptionAlgorithm.apply(message);
 
         console.log("Sending the encrypted message...");
     }
