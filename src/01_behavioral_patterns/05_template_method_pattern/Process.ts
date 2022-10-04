@@ -1,6 +1,6 @@
 import AuditTrail from "./AuditTrail";
-import GenerateReportTask from "./GenerateReportTask";
-import TransferMoneyTask from "./TransferMoneyTask";
+import GenerateReportTask from "./tasks/GenerateReportTask";
+import TransferMoneyTask from "./tasks/TransferMoneyTask";
 
 export default class Process {
     public main(): void {

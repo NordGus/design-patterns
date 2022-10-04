@@ -1,5 +1,5 @@
-import AuditTrail from "./AuditTrail";
-import Task from "./Task";
+import AuditTrail from "../AuditTrail";
+import Task from "../Task";
 
 export default class TransferMoneyTask extends Task {
     constructor(auditTrail: AuditTrail) {

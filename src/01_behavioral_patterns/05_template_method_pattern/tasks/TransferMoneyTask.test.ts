@@ -1,8 +1,8 @@
-import AuditTrail from "./AuditTrail";
-import GenerateReportTask from "./GenerateReportTask";
+import AuditTrail from "../AuditTrail";
+import TransferMoneyTask from "./TransferMoneyTask";
 
-describe("GenerateReportTask", () => {
-    const task = new GenerateReportTask(new AuditTrail());
+describe("TransferMoneyTask", () => {
+    const task = new TransferMoneyTask(new AuditTrail());
 
     afterEach(() => { jest.clearAllMocks() });
 
@@ -13,10 +13,10 @@ describe("GenerateReportTask", () => {
             expect(consoleSpy).toHaveBeenCalledWith("Audit");
         });
 
-        it("should generate the report of the transactions", () => {
+        it("should transfer money between accounts", () => {
             const consoleSpy = jest.spyOn(console, "log");
             task.execute();
-            expect(consoleSpy).toHaveBeenCalledWith("Generate Report");
+            expect(consoleSpy).toHaveBeenCalledWith("Transfer Money");
         });
     });
 });
