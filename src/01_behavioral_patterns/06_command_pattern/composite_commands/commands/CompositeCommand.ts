@@ -1,4 +1,4 @@
-import ICommand from "../../framework/ICommand";
+import ICommand from "../../example/framework/ICommand";
 
 export default class CompositeCommand implements ICommand {
     private commands: Array<ICommand> = new Array<ICommand>();

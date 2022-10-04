@@ -1,4 +1,4 @@
-import ICommand from "../../framework/ICommand";
+import ICommand from "../../example/framework/ICommand";
 
 export default class ResizeCommand implements ICommand {
     public execute(): void {
