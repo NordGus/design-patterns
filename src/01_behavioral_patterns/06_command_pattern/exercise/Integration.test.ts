@@ -21,19 +21,19 @@ describe("Undo mechanism for a Video Editor", () => {
         expect(editor.toString()).toBe("VideoEditor {contrast=3, text=\"undefined\"}");
     });
 
-    it("undoing change in editor's contrast", () => {
-        undoCommand.execute();
-
-        expect(editor.toString()).toBe("VideoEditor {contrast=0.5, text=\"undefined\"}");
-    });
-
     it("changing editor's text", () => {
         textCommand.execute();
 
-        expect(editor.toString()).toBe("VideoEditor {contrast=0.5, text=\"Hello World\"}");
+        expect(editor.toString()).toBe("VideoEditor {contrast=3, text=\"Hello World\"}");
     });
-
+        
     it("undoing change in editor's text", () => {
+        undoCommand.execute();
+        
+        expect(editor.toString()).toBe("VideoEditor {contrast=3, text=\"\"}");
+    });
+    
+    it("undoing change in editor's contrast", () => {
         undoCommand.execute();
 
         expect(editor.toString()).toBe("VideoEditor {contrast=0.5, text=\"\"}");
