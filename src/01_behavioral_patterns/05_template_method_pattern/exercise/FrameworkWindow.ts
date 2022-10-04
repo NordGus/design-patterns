@@ -1,11 +1,11 @@
-export default class FrameworkWindow {
+export default abstract class FrameworkWindow {
     public close(): void {
-        //TODO: custom windows may need to execute some code before the window
-        // is closed.
-
+        this.beforeClose();
         console.log("Removing the window from the screen");
-
-        //TODO: custom windows may need to execute some code after the window
-        // is closed.
+        this.afterClose();
     }
+
+    protected abstract beforeClose(): void;
+
+    protected abstract afterClose(): void;
 }
