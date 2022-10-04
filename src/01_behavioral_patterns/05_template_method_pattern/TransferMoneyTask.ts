@@ -1,15 +1,12 @@
-import AuditTrail from "./AuditTrail"
+import AuditTrail from "./AuditTrail";
+import Task from "./Task";
 
-export default class TransferMoneyTask {
-    private auditTrail: AuditTrail;
-
+export default class TransferMoneyTask extends Task {
     constructor(auditTrail: AuditTrail) {
-        this.auditTrail = auditTrail;
+        super(auditTrail);
     }
 
-    public execute(): void {
-        this.auditTrail.record();
-
+    protected override doExecution(): void {
         console.log("Transfer Money");
     }
 }
