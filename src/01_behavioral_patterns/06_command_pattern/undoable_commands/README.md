@@ -1,0 +1,3 @@
+# Undoable Commands
+
+With **Undoable Commands** we can implement undo mechanisms, like with the Memento Pattern. The difference is in that the operation is a lot more memory efficient, because the Memento Pattern saves an snapshot of the object state in memory. There's cases where this is not practical like when working on a video editing software, videos are large files and storing snapshots of them in memory is not practical.
