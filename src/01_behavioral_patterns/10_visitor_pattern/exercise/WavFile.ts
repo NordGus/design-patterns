@@ -1,9 +1,10 @@
-import FactSegment from "./FactSegment";
-import FormatSegment from "./FormatSegment";
-import Segment from "./Segment";
+import FactSegment from "./segments/FactSegment";
+import ISegment from "./interfaces/ISegment";
+import FormatSegment from "./segments/FormatSegment";
+import IOperation from "./interfaces/IOperation";
 
 export default class WavFile {
-    private segments = new Array<Segment>();
+    private segments = new Array<ISegment>();
 
     public static read(fileName: string): WavFile {
         // Simulate reading a wav file and building the segments
@@ -16,18 +17,8 @@ export default class WavFile {
         return wavFile;
     }
 
-    public reduceNoise(): void {
+    public execute(operation: IOperation): void {
         for (var segment of this.segments)
-            segment.reduceNoise();
-    }
-
-    public addReverb(): void {
-        for (var segment of this.segments)
-            segment.addReverb();
-    }
-
-    public normalize(): void {
-        for (var segment of this.segments)
-            segment.normalize();
+            segment.execute(operation);
     }
 }
