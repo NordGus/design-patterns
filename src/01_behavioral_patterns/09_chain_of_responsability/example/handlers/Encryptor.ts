@@ -1,9 +1,9 @@
 import Handler from "../Handler";
 import HttpRequest from "../HttpRequest";
 
-export default class Compressor extends Handler {
+export default class Encryptor extends Handler {
     protected override doHandle(request: HttpRequest): boolean {
-        console.log("Compressed");
+        console.log("Encrypted");
         return false;
     }
 }
