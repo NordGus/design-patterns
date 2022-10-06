@@ -1,14 +1,16 @@
-import HtmlNode from "./HtmlNode";
+import IHtmlNode from "./interfaces/IHtmlNode";
+import IOperation from "./interfaces/IOperation";
+import HighlightOperation from "./operations/HighlightOperation";
 
 export default class HtmlDocument {
-    private nodes: Array<HtmlNode> = new Array<HtmlNode>();
+    private nodes: Array<IHtmlNode> = new Array<IHtmlNode>();
 
-    public add(node: HtmlNode): void {
+    public add(node: IHtmlNode): void {
         this.nodes.push(node);
     }
 
-    public highligth(): void {
+    public execute(operation: IOperation): void {
         for (const node of this.nodes)
-            node.highlight();
+            node.execute(operation);
     }
 }
