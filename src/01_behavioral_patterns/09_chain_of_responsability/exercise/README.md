@@ -12,4 +12,6 @@ Look at the current implementation of our data reader at **chainOfResponsibility
 
 What are the problems with this implementation? 
 
+*It breacks the single responsability principle and the open/close principle*
+
 Refactor this code and use the chain of responsibility pattern to solve these problems.

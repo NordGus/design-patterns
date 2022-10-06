@@ -1,15 +1,23 @@
-export default class DataReader {
+export default abstract class DataReader {
+    private next: DataReader;
+
+    public setNext(next: DataReader) {
+        this.next = next;
+    }
+
     public read(fileName: string): void {
-        if (fileName.endsWith(".xls")) {
-            console.log("Reading data from an Excel spreadsheet.");
+        if (fileName.endsWith(this.getExtension())) {
+            this.readFile(fileName);
+            return;
         }
-        else if (fileName.endsWith(".numbers")) {
-            console.log("Reading data from a Numbers spreadsheet.");
-        }
-        else if (fileName.endsWith(".qbw")) {
-            console.log("Reading data from a QuickBooks file.");
-        }
+
+        if (!!this.next)
+            this.next.read(fileName);
         else
             throw new Error("File format not supported.");
     }
+
+    protected abstract readFile(fileName: string): void;
+
+    protected abstract getExtension(): string;
 }
