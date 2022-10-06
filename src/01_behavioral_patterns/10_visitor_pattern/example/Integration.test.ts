@@ -39,7 +39,7 @@ describe("An HTML Editor", () => {
         });
     });
 
-    describe("transfor to plain text", () => {
+    describe("transform to plain text", () => {
         const operation = new PlainTextOperation();
 
         beforeEach(() => {
