@@ -9,5 +9,6 @@ export default class CheckBox extends UIControl {
 
     public setChecked(checked: boolean): void {
         this.isChecked = checked;
+        this.notify();
     }
 }

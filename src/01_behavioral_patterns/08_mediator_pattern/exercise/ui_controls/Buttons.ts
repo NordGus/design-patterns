@@ -9,5 +9,6 @@ export default class Button extends UIControl {
 
     public setEnabled(enabled: boolean): void {
         this.isEnabled = enabled;
+        this.notify();
     }
 }

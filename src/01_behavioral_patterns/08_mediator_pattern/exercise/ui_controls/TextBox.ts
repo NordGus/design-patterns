@@ -9,5 +9,6 @@ export default class TextBox extends UIControl {
 
     public setContent(content: string): void {
         this.content = content;
+        this.notify();
     }
 }
