@@ -1,4 +1,4 @@
-import IIterator from "../IIterator";
+import IIterator from "../example/IIterator";
 import Product from "./Product";
 
 export default class ProductArrayIterator implements IIterator<Product> {

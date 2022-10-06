@@ -1,4 +1,4 @@
-import IIterator from "../IIterator";
+import IIterator from "../example/IIterator";
 import Product from "./Product";
 import ProductArrayIterator from "./ProductArrayIterator";
 import ProductCollection from "./ProductCollection";
