@@ -99,7 +99,7 @@ describe("An object hierarchy", () => {
                 expect(group1.move).toHaveBeenCalledTimes(1);
             });
 
-            it("should have move the second group", () => {
+            it("should have render the second group", () => {
                 expect(group2.move).toHaveBeenCalledTimes(1);
             });
         });
