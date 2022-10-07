@@ -16,4 +16,6 @@ A team often includes a truck and one or more human resources. It can also inclu
 
 Look at the current implementation of our application in the **composite** package.
 
-What are the problems with this implementation? Refactor the code using the composite pattern. 
+What are the problems with this implementation? Refactor the code using the composite pattern.
+
+*The code is hard to read and it will scale badly violating the open/close principle*

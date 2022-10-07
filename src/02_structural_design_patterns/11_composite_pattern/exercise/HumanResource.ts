@@ -1,5 +1,7 @@
-export default class HumanResource {
+import IResource from "./interfaces/IResource";
+
+export default class HumanResource implements IResource {
     public deploy(): void {
-      console.log("Deploying a human resource");
+        console.log("Deploying a human resource");
     }
-  }
+}
