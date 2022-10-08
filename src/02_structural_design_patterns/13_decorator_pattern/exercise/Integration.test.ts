@@ -14,8 +14,8 @@ describe("A code editor", () => {
             expect(console.log).toHaveBeenCalledTimes(4);
         });
 
-        it("should have rendered the main artefact", () => {
-            expect(console.log).toHaveBeenCalledWith("Main [Main]");
+        it("should have rendered the main artefact with an error", () => {
+            expect(console.log).toHaveBeenCalledWith("Main [Main] [Error]");
         });
 
         it("should have rendered an artefact with an error", () => {

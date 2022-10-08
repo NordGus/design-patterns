@@ -12,7 +12,7 @@ export default class Editor {
             new Artefact("EmailProvider")
         );
 
-        artefacts[0] = new MainDecorator(artefacts[0]);
+        artefacts[0] = new ErrorDecorator(new MainDecorator(artefacts[0]));
         artefacts[2] = new ErrorDecorator(artefacts[2]);
 
         for (var artefact of artefacts)
