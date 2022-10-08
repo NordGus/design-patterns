@@ -15,11 +15,11 @@ describe("A code editor", () => {
         });
 
         it("should have rendered the main artefact", () => {
-            expect(console.log).toHaveBeenCalledWith("Main  [Main]");
+            expect(console.log).toHaveBeenCalledWith("Main [Main]");
         });
 
         it("should have rendered an artefact with an error", () => {
-            expect(console.log).toHaveBeenCalledWith("EmailClient [Error] ");
+            expect(console.log).toHaveBeenCalledWith("EmailClient [Error]");
         });
     });
 });
