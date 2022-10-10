@@ -1,14 +1,15 @@
+import CellContext from "./CellContext";
+
 export default class Cell {
   private readonly row: number;
   private readonly column: number;
   private content: string;
-  private fontFamily: string;
-  private fontSize: number;
-  private isBold: boolean;
+  private context: CellContext;
 
-  constructor(row: number, column: number) {
+  constructor(row: number, column: number, context: CellContext) {
     this.row = row;
     this.column = column;
+    this.context = context;
   }
 
   public getContent(): string {
@@ -19,31 +20,15 @@ export default class Cell {
     this.content = content;
   }
 
-  public getFontFamily(): string {
-    return this.fontFamily;
+  public getContext(): CellContext {
+    return this.context;
   }
 
-  public setFontFamily(fontFamily: string): void {
-    this.fontFamily = fontFamily;
-  }
-
-  public getFontSize(): number {
-    return this.fontSize;
-  }
-
-  public setFontSize(fontSize: number): void {
-    this.fontSize = fontSize;
-  }
-
-  public bold(): boolean {
-    return this.isBold;
-  }
-
-  public setBold(bold: boolean): void {
-    this.isBold = bold;
+  public setContext(context: CellContext): void {
+    this.context = context;
   }
 
   public render(): void {
-    console.log(`(${this.row}, ${this.column}): ${this.content} [${this.fontFamily}]`);
+    console.log(`(${this.row}, ${this.column}): ${this.content} [${this.context.getFontFamily()}]`);
   }
 }

@@ -1,22 +1,19 @@
 import Cell from "./Cell";
+import CellContext from "./CellContext";
+import CellContextFactory from "./factories/CellContextFactory";
 
 export default class SpreadSheet {
   private readonly MAX_ROWS: number;
   private readonly MAX_COLS: number;
-  private readonly fontFamily: string;
-  private readonly fontSize: number;
-  private readonly isBold: boolean;
-
   private cells: Cell[][];
+  private cellContextFactory: CellContextFactory;
 
-  constructor() {
+  constructor(cellContextFactory: CellContextFactory) {
     // In a real app, these values should not be hardcoded here.
     // They should be read from a configuration file.
     this.MAX_ROWS = 3;
     this.MAX_COLS = 3;
-    this.fontFamily = "Times New Roman";
-    this.fontSize = 12;
-    this.isBold = false;
+    this.cellContextFactory = cellContextFactory;
 
     this.cells = new Array<Array<Cell>>(this.MAX_ROWS);
 
@@ -34,8 +31,12 @@ export default class SpreadSheet {
 
   public setFontFamily(row: number, col: number, fontFamily: string): void {
     this.ensureCellExists(row, col);
+    
+    const cell = this.cells[row][col];
+    const currentContext = cell.getContext();
+    const newContext = this.cellContextFactory.getContext(fontFamily, currentContext.getFontSize(), currentContext.bold());
 
-    this.cells[row][col].setFontFamily(fontFamily);
+    cell.setContext(newContext);
   }
 
   private ensureCellExists(row: number, col: number): void {
@@ -48,11 +49,12 @@ export default class SpreadSheet {
 
   private generateCells(): void {
     for (var row = 0; row < this.MAX_ROWS; row++)
-      for (var col = 0; col < this.MAX_COLS; col++) {
-        const cell = new Cell(row, col);
-        cell.setFontFamily(this.fontFamily);
-        this.cells[row][col] = cell;
-      }
+      for (var col = 0; col < this.MAX_COLS; col++)
+        this.cells[row][col] = new Cell(row, col, this.getDefaultContext());
+  }
+
+  private getDefaultContext(): CellContext {
+    return this.cellContextFactory.getContext("Times New Roman", 12, false);
   }
 
   public render(): void {
