@@ -1,5 +1,6 @@
 import AdvancedRemoteControl from "./features/AdvancedRemoteControl";
 import RemoteControl from "./features/RemoteControl";
+import LGTV from "./implementations/LGTV";
 import SamsungTV from "./implementations/SamsungTV";
 import SonyTV from "./implementations/SonyTV";
 
@@ -77,6 +78,43 @@ describe("A Remote Control Application for TVs", () => {
             it("should set channel", () => {
                 remote.setChannel(42);
                 expect(console.log).toHaveBeenCalledWith("Samsung Set channel 42");
+            });
+        });
+    });
+
+    describe("LG TV", () => {
+        const tv = new LGTV();
+        
+        describe("basic remote control", () => {
+            const remote = new RemoteControl(tv);
+
+            it("should turn on", () => {
+                remote.turnOn();
+                expect(console.log).toHaveBeenCalledWith("LG Turn On");
+            });
+
+            it("should turn off", () => {
+                remote.turnOff();
+                expect(console.log).toHaveBeenCalledWith("LG Turn Off");
+            });
+        });
+
+        describe("advanced remote control", () => {
+            const remote = new AdvancedRemoteControl(tv);
+
+            it("should turn on", () => {
+                remote.turnOn();
+                expect(console.log).toHaveBeenCalledWith("LG Turn On");
+            });
+
+            it("should turn off", () => {
+                remote.turnOff();
+                expect(console.log).toHaveBeenCalledWith("LG Turn Off");
+            });
+
+            it("should set channel", () => {
+                remote.setChannel(42);
+                expect(console.log).toHaveBeenCalledWith("LG Set channel 42");
             });
         });
     });
