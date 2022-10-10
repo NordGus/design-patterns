@@ -1,6 +1,6 @@
-import AdvancedRemoteControl from "./AdavacedRemoteControl";
+import IDevise from "../interfaces/IDevice";
 
-export default class SonyAdvancedControl extends AdvancedRemoteControl {
+export default class SonyTV implements IDevise {
     public turnOn(): void {
         console.log("Sony Turn On");
     }
