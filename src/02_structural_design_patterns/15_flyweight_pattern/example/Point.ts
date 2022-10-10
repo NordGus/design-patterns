@@ -1,19 +1,17 @@
-import { PointType } from "./enums/PointType";
+import PointIcon from "./PointIcon";
 
 export default class Point {
     private x: number; // 4 bytes
     private y: number; // 4 bytes
-    private pointType: PointType; // 4 bytes
-    private icon: Int8Array; // 20 KB -> if you have 1000 points, it needs 20MB
+    private icon: PointIcon;
 
-    constructor(x: number, y: number, pointType: PointType, icon: Int8Array) {
+    constructor(x: number, y: number, icon: PointIcon) {
         this.x = x;
         this.y = y;
-        this.pointType = pointType;
         this.icon = icon;
     }
 
     public draw(): void {
-        console.log(`${this.pointType} at (${this.x}, ${this.y})`);
+        console.log(`${this.icon.getPointType()} at (${this.x}, ${this.y})`);
     }
 }
