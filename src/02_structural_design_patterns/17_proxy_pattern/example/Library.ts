@@ -1,9 +1,9 @@
-import Ebook from "./Ebook";
+import IEbook from "./intefaces/IEbook";
 
 export default class Library {
-    private ebooks: Map<string, Ebook> = new Map<string, Ebook>();
+    private ebooks: Map<string, IEbook> = new Map<string, IEbook>();
 
-    public add(ebook: Ebook): void {
+    public add(ebook: IEbook): void {
         this.ebooks.set(ebook.getFileName(), ebook);
     }
 

@@ -1,4 +1,6 @@
-export default class Ebook {
+import IEbook from "./intefaces/IEbook";
+
+export default class Ebook implements IEbook {
     private fileName: string;
 
     constructor(fileName: string) {
