@@ -1,13 +1,9 @@
-import OAuth from "./OAuth";
-import TwitterClient from "./TwitterClient";
+import TwitterService from "./services/TwitterService";
 
 export default class Demo {
   public static show(): void {
-    const oauth = new OAuth();
-    const requestToken = oauth.requestToken("appKey", "secret");
-    const accessToken = oauth.getAccessToken(requestToken);
+    const service = new TwitterService();
 
-    const twitterClient = new TwitterClient();
-    const tweets = twitterClient.getRecentTweets(accessToken);
+    const tweets = service.getRecentTweets();
   }
 }

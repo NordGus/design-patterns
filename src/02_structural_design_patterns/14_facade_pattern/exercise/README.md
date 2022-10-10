@@ -9,3 +9,5 @@ We’re building a social media management tool. On a few screens, we need to di
 We have to repeat similar steps for other operations such as composing a new tweet, liking a tweet, etc.
 
 What are the problems with the current implementation? Use the facade pattern to solve these problems.
+
+*This implementation is super verbose and it needs to be repeated in every instance we want to operate with tweets*
