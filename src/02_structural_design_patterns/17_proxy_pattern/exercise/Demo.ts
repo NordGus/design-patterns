@@ -2,10 +2,10 @@ import DbContext from "./DbContext";
 
 export default class Demo {
   public static show(): void {
-    var dbContext = new DbContext();
+    const dbContext = new DbContext();
 
     // We read an object (eg a product) from a database.
-    var product = dbContext.getProduct(1);
+    const product = dbContext.getProduct(1);
 
     // We modify the properties of the object in memory.
     product.setName("Updated Name");
