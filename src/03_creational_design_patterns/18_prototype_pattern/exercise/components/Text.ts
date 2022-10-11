@@ -7,6 +7,10 @@ export default class Text implements IComponent {
         this.content = content;
     }
 
+    public clone(): Text {
+        return new Text(this.content);
+    }
+
     public getContent(): string {
         return this.content;
     }

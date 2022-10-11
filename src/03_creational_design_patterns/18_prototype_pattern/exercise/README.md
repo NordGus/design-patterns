@@ -8,3 +8,4 @@ What are the problems in the current implementation?
 
 Refactor the code using the prototype pattern. What have you achieved?
 
+*I've clean the implementation of the **ContextMenu** class bring it back in compliance with the open/clone principle*

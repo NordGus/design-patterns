@@ -12,20 +12,7 @@ export default class ContextMenu {
     }
 
     public duplicate(component: IComponent): void {
-        if (component instanceof Text) {
-            const source = component as Text;
-            const target = new Text(source.getContent());
-            this.timeline.add(target);
-        }
-        else if (component instanceof Audio) {
-            const source = component as Audio;
-            const target = new Audio(source.getMetadata());
-            this.timeline.add(target);
-        }
-        else if (component instanceof Clip) {
-            const source = component as Clip;
-            const target = new Clip(source.getMetadata());
-            this.timeline.add(target);
-        }
+        const clone = component.clone();
+        this.timeline.add(clone);
     }
 }

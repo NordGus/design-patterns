@@ -7,6 +7,10 @@ export default class Clip implements IComponent {
         this.metadata = metadata;
     }
 
+    public clone(): Clip {
+        return new Clip(this.metadata);
+    }
+
     public getMetadata(): string {
         return this.metadata;
     }
