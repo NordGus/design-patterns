@@ -1,4 +1,5 @@
-import { PresentationFormat } from "./enums/PresentationFormat";
+import MovieBuilder from "./builders/MovieBuilder";
+import PDFDocumentBuilder from "./builders/PDFDocumentBuilder";
 import Presentation from "./Presentation";
 import Slide from "./Slide";
 
@@ -15,7 +16,9 @@ describe("A presentation software like PowerPoint or Keynote", () => {
     afterEach(() => jest.clearAllMocks());
 
     describe("exporting the presentation as a PDF Document", () => {
-        beforeEach(() => presentation.export(PresentationFormat.PDF));
+        const builder = new PDFDocumentBuilder();
+
+        beforeEach(() => presentation.export(builder));
 
         it("should export each slide as a PDF page", () => {
             expect(console.log).toHaveBeenCalledTimes(2);
@@ -31,7 +34,9 @@ describe("A presentation software like PowerPoint or Keynote", () => {
     });
 
     describe("exporting the presentation as a Movie", () => {
-        beforeEach(() => presentation.export(PresentationFormat.Movie));
+        const builder = new MovieBuilder(3);
+
+        beforeEach(() => presentation.export(builder));
 
         it("should export each slide as a PDF page", () => {
             expect(console.log).toHaveBeenCalledTimes(2);
