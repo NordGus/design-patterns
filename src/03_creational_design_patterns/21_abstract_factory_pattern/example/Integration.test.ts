@@ -1,5 +1,6 @@
+import AntWidgetFactory from "./ant/AntWidgetFactory";
 import ContactForm from "./app/ContactForm";
-import { Theme } from "./enums/Theme";
+import MaterialWidgetFactory from "./material/MaterialWidgetFactory";
 
 describe("A contact form in multi-theme web application", () => {
     const contactForm = new ContactForm();
@@ -8,7 +9,7 @@ describe("A contact form in multi-theme web application", () => {
     afterEach(() => jest.clearAllMocks());
 
     describe("render a contact form with Ant theme", () => {
-        beforeEach(() => contactForm.render(Theme.Ant));
+        beforeEach(() => contactForm.render(new AntWidgetFactory()));
 
         it("should render a button with the given theme", () => {
             expect(console.log).toHaveBeenCalledWith("Ant Button");
@@ -20,7 +21,7 @@ describe("A contact form in multi-theme web application", () => {
     });
 
     describe("render a contact form with Material theme", () => {
-        beforeEach(() => contactForm.render(Theme.Material));
+        beforeEach(() => contactForm.render(new MaterialWidgetFactory()));
 
         it("should render a button with the given theme", () => {
             expect(console.log).toHaveBeenCalledWith("Material Button");
