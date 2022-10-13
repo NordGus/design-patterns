@@ -1,24 +1,14 @@
-import { Goal } from "./enums/Goal";
+import IGoal from "./interfaces/IGoal";
 import IMealPlan from "./interfaces/IMealPlan";
 import IWorkoutPlan from "./interfaces/IWorkoutPlan";
-import BuildMuscleMealPlan from "./meal_plans/BuildMuscleMealPlan";
-import WeighLossMealPlan from "./meal_plans/WeighLossMealPlan";
-import BuildMuscleWorkout from "./workouts/BuildMuscleWorkout";
-import WeightLossWorkout from "./workouts/WeightLossWorkout";
 
 export default class HomePage {
     private workoutPlan: IWorkoutPlan;
     private mealPlan: IMealPlan;
 
-    public setGoal(goal: Goal): void {
-        if (goal == Goal.BUILD_MUSCLE) {
-            this.workoutPlan = new BuildMuscleWorkout();
-            this.mealPlan = new BuildMuscleMealPlan();
-        }
-        else if (goal == Goal.WEIGHT_LOSS) {
-            this.workoutPlan = new WeightLossWorkout();
-            this.mealPlan = new WeighLossMealPlan();
-        }
+    public setGoal(goal: IGoal): void {
+        this.workoutPlan = goal.workoutPlan();
+        this.mealPlan = goal.mealPlan();
     }
 
     public getWorkoutPlan(): IWorkoutPlan {
